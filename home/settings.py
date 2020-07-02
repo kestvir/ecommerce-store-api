@@ -113,7 +113,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_ESHOP_PASS')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_ECOMMERCE_STORE_PASS')
 
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
@@ -123,16 +123,8 @@ DJOSER = {
 AWS_S3_REGION_NAME = 'eu-central-1'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID_ECOMMERCE_STORE')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY_ECOMMERCE_STORE')
-AWS_STORAGE_BUCKET_NAME = os.environ.get(
-    'AWS_STORAGE_BUCKET_NAME_ECOMMERCE_STORE')
+AWS_STORAGE_BUCKET_NAME = 'django-ecommerce-store-files'
 
-
-print(os.environ.get('AWS_ACCESS_KEY_ID_ECOMMERCE_STORE'))
-print(AWS_ACCESS_KEY_ID)
-print(os.environ.get(
-    'AWS_STORAGE_BUCKET_NAME_ECOMMERCE_STORE')
-)
-print(AWS_STORAGE_BUCKET_NAME)
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
