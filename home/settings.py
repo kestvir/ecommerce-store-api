@@ -115,6 +115,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_ECOMMERCE_STORE_PASS')
 
+print(os.environ.get('EMAIL_USER'))
+print(os.environ.get('EMAIL_ECOMMERCE_STORE_PASS'))
+
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
 }
@@ -135,7 +138,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'https://agitated-curie-509e22.netlify.app/'
+    'https://agitated-curie-509e22.netlify.app'
 )
 
 
