@@ -10,16 +10,17 @@ User._meta.get_field('email').null = False
 User._meta.get_field('username')._unique = True
 User._meta.get_field('username').blank = False
 User._meta.get_field('username').null = False
-# User Serializer
 
+
+# User Serializer
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email')
 
-# Register Serializer
 
+# Register Serializer
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -33,8 +34,8 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
 
-# Login Serializer
 
+# Login Serializer
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
