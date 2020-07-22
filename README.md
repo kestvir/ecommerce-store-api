@@ -1,1 +1,1 @@
-Ecommerce-store-backend.
+Ecommerce store app backend.
