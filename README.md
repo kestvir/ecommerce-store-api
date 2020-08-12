@@ -9,7 +9,7 @@ The Ecommerce store lets users buy items from a general ecommerce store.
 -   [x] User has to provide a shipping and billing address to be able to purshase items.
 -   [x] User can purshase items via Stripe.
 -   [x] User can see their purchase history.
--   [x] User account information is stored in and retrieved from a PostgreSQL database via an API built with Django.
+-   [x] User account information is stored in and retrieved from a PostgreSQL database via an API built with Django, django-knox and djoser..
 
 
 This is the backend for the Ecommerce store app. The apps client-side can be found here: https://github.com/kestvir/ecommerce-store-frontend
