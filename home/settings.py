@@ -137,7 +137,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'https://my-ecommerce-store.netlify.app/'
+    'https://my-ecommerce-store.netlify.app'
 )
 
 
