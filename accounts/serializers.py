@@ -29,7 +29,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
-  def validate_password(self, value):
+    def validate_password(self, value):
         try:
             validate_password(value)
         except ValidationError as exc:
