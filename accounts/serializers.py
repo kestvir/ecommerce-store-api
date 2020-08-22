@@ -32,7 +32,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def validate_password(self, value):
         try:
             validate_password(value)
-        except serializersValidationError as exc:
+        except serializers.ValidationError as exc:
             raise serializers.ValidationError(str(exc))
         return value
 
