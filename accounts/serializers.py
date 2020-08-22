@@ -29,12 +29,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
-        def validate_password(self, data):
-            # validators.validate_password(password=data, user=User)
-            # return data
+    def validate_password(self, data):
+        # validators.validate_password(password=data, user=User)
+        # return data
 
-            # here data has all the fields which have validated values
-            # so we can create a User instance out of it
+        # here data has all the fields which have validated values
+        # so we can create a User instance out of it
         user = User(**data)
 
         # get the password from the data
