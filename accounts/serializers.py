@@ -34,8 +34,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         try:
             validate_password(value)
         except ValidationError as exc:
-            excStr = ' '.join(map(str, exc))
-            raise serializers.ValidationError(excStr)
+            raise serializers.ValidationError(str(exc))
         return value
 
     def create(self, validated_data):
