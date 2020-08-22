@@ -1,5 +1,6 @@
 
 from rest_framework import serializers
+import django.contrib.auth.password_validation as validators
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -27,6 +28,31 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
+
+        def validate_password(self, data):
+            # validators.validate_password(password=data, user=User)
+            # return data
+
+            # here data has all the fields which have validated values
+            # so we can create a User instance out of it
+        user = User(**data)
+
+        # get the password from the data
+        password = data.get('password')
+
+        errors = dict()
+        try:
+            # validate the password and catch the exception
+            validators.validate_password(password=password, user=user)
+
+        # the exception raised here is different than serializers.ValidationError
+        except exceptions.ValidationError as e:
+            errors['password'] = list(e.messages)
+
+        if errors:
+            raise serializers.ValidationError(errors)
+
+        return super(RegisterUserSerializer, self).validate(data)
 
     def create(self, validated_data):
         user = User.objects.create_user(
