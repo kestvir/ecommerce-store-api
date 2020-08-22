@@ -29,30 +29,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
-    def validate(self, data):
-        # validators.validate_password(password=data, user=User)
-        # return data
-
-        # here data has all the fields which have validated values
-        # so we can create a User instance out of it
-        user = User(**data)
-
-        # get the password from the data
-        password = data.get('password')
-
-        errors = dict()
+  def validate_password(self, value):
         try:
-            # validate the password and catch the exception
-            validators.validate_password(password=password, user=user)
-
-        # the exception raised here is different than serializers.ValidationError
-        except exceptions.ValidationError as e:
-            errors['password'] = list(e.messages)
-
-        if errors:
-            raise serializers.ValidationError(errors)
-
-        return super(RegisterUserSerializer, self).validate(data)
+            validate_password(value)
+        except ValidationError as exc:
+            raise serializers.ValidationError(str(exc))
+        return value
 
     def create(self, validated_data):
         user = User.objects.create_user(
