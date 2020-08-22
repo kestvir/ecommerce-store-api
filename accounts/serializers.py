@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 from django.contrib.auth.password_validation import validate_password
-
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -33,7 +33,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def validate_password(self, value):
         try:
             validate_password(value)
-        except serializers.ValidationError as exc:
+        except ValidationError as exc:
             raise serializers.ValidationError(str(exc))
         return value
 
