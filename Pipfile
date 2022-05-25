@@ -63,7 +63,7 @@ whitenoise = "==5.1.0"
 wrapt = "==1.12.1"
 Django = "==3.0.7"
 Pillow = "==7.1.2"
-PyJWT = "==1.7.1"
+PyJWT = "==2.4.0"
 
 [requires]
 python_version = "3.8"
