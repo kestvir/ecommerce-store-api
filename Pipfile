@@ -62,7 +62,7 @@ urllib3 = "==1.25.9"
 whitenoise = "==5.1.0"
 wrapt = "==1.12.1"
 Django = "==3.0.7"
-Pillow = "==7.1.2"
+Pillow = "==9.3.0"
 PyJWT = "==1.7.1"
 
 [requires]
